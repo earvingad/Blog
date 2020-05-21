@@ -1,0 +1,15 @@
+baseURL = "https://earvingad.github.io/Blog/"
+languageCode = "en-us"
+title = "Nerd things and more..."
+theme = "hyde"
+
+[params]
+  description = "Chemical engineer, nerd and angry."
+  themeColor = "theme-base-00"
+  layoutReverse = true
+
+[Menus]
+  main = [
+      {Name = "Twitter", URL = "https://twitter.com/EarvingArciga"},
+      {Name = "Github", URL = "https://github.com/earvingad/"}
+  ]

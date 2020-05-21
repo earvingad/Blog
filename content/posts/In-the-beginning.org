@@ -1,0 +1,25 @@
+---
+title: "In the Beginning"
+date: 2020-05-20T22:25:18-05:00
+draft: false
+---
+* First things first
+This place is going to be my personal blog. I am going to write about nerd things I don't generally speak with people.
+Such things include: =Emacs, linux, vim, encryption= and =a e s t h e t i c s=.
+
+This blog is hosted in [[github:][github]], written in [[https://www.gnu.org/software/emacs/][Emacs]] with [[https://orgmode.org/][org-mode]] and posted with [[https://gohugo.io/][Hugo]] (This is one of the topics I'll be posting later: /How to blog with github and Hugo/).
+
+Recently, I started using emacs at work due to =org-mode=. I have used emacs in linux for a few months after loving LaTex previews (I am going to post about this later as well). However, at work I have to use windows under heavily firewalls and that complicate the Emacs installation.
+
+I have always though that Emacs is neat. Just reading the name in a =monospaced= font makes me think that Emacs is elegant. I love Emacs and have the /vanilla/ key-bindings. When I decided to used it, I remember reading the documentation for minimal use and it went something like
+#+begin_quote
+So you just have to pres =C-x C-x= ... wait what??
+#+end_quote
+I was very used to vim key-bindings, so the Emacs learning curve was very long. After some months, I was able to use Emacs comfortably for taking quick notes at work meetings and organizing my pending tasks (Yes, TODO's), but the key-bindings were tedious.
+
+Luckily, there are frameworks that allows you to emulate vim key-bindings in Emacs. Some of these frameworks are: [[https://www.spacemacs.org/][Spacemacs]], [[https://github.com/seagle0128/.emacs.d][Centaur Emacs]] and [[github:hlissner/doom-emacs][Doom-emacs]]. The latest, is the one I use now and installing in windows was and Odyssey but worth it!
+
+The next posts are going to be about:
+- /How to install Doom-emacs in windows/
+- /Org-mode/ & /org-roam/
+- ... and we'll see.
