@@ -1,0 +1,43 @@
+---
+title: "Orgzly and never lose your notes again"
+date: 2020-06-11T22:13:00-05:00
+draft: false
+tags: [orgmode, orgzly, mobile, dropbox, android]
+categories: [orgmode]
+---
+
+I wanted to write a post about Orgzly for a few days, but I have been very busy these days. As I told in previous posts, I started using orgmode at work, but not for my everyday personal tasks... and suddenly I came across with Orgzly.
+
+[[http://www.orgzly.com/][Orgzly]] is an /outliner for notes and to-do lists/ for Android devices! It basically allows you to write notes as in [[https://earvingad.github.io/posts/org_mode/][org-mode]] in Emacs, but in your phone ---because you wont be carrying your laptop all day.
+
+You can use Orgzly to take notes, to-do list or manage your agenda. I am using it for remainders, pending tasks and write some good ass poems (I used to write poems in conventional note taking android apps and lost them all when my last phone was stolen).
+
+The good thing is that you can sync your notes created in Orgzly with your PC/laptop using Dropbox.
+
+
+
+* Installation
+Just go to the playstore and look for Orgzly and no, there is no iOS version.
+* Dropbox sync
+Once Orgzly is installed in your phone you can enable sync trough Dropbox with:
+- Go to =Settings=
+- Click on =Sync=
+- Click on =Repositories=
+- Click on =Dropbox= (if you already have some repositories, click the plus icon first)
+- Click on =Link to Dropbox=
+  - You will be prompted to login to Dropbox and authorize access to Orgzly.
+- Enter the directory inside Dropbox (without "Dropbox" part)
+  - For example: If you have a folder named ~org~ inside Dropbox just type: =/org=
+
+Now every note you write will appear in your Dropbox and you can check it anytime you want from your laptop and phone.
+
+How does it look like? Something like this:
+{{< figure src="https://lh3.googleusercontent.com/wNWpgiOaN0SlID63Yn9ZgNagzzt260tt-IP4TQ2bCOIeQz9F1gkKts9J3f0Dvebp9w=w1360-h704-rw" title="" >}}
+
+Full documentation of Orgzly can be found [[http://www.orgzly.com/help][here]].
+
+
+#+begin_src none
+If you found this content useful, please support me :
+BTC: 1E2YjL6ysiPxRF4AEdXChpzpesRuyzgE1y
+#+end_src

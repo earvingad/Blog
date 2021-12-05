@@ -1,0 +1,76 @@
+---
+title: "Blog with Hugo (and GitHub Pages)"
+date: 2021-01-03T19:37:05-06:00
+draft: false
+tags: [emacs, git, hugo, blog]
+categories: [blog, hugo, github]
+---
+#+begin_quote
+Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+#+end_quote
+That's in the Hugo website and I guess it's true, since I find it very easy to use to publish this dumb blog when I have the time to.
+
+Now, Hugo will generate the static site in your PC but how can you make it accessible from the Internet? Well... GitHub Pages is the savior.
+#+begin_quote
+GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website.
+#+end_quote
+
+Aaah you see?! Hugo generates the static site and GitHub Pages host this site to make it public. So we need both.
+
+So lets start.
+
+*Please note that the following instructions and commands are run from a Terminal*.
+
+* Create the GitHub page host
+In order to publish your blog, you will need to create a host and as we said, we will be using GitHub Pages for that.
+1. First create from GitHub a repository =<USERNAME>.github.io= to host your generated content. You can follow GitHub instructions [[https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site][here]], it's very simple and clear to understand.
+2. Make sure that under Settings of your =<USERNAME>.github.io= the =main(or master)= branch and the =/(root)= folder are selected as Source, to publish your GitHub Pages site.
+3. Be aware that the repository creation will take around 20-30 minutes to be available online.
+4. Also intall git =sudo pacman -S git= (Need [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][help]] for installing?)
+* Creating the blog with Hugo.
+1. Install Hugo. In Archlinux just =sudo pacman -S hugo= (see [[https://gohugo.io/getting-started/installing/][Hugo Install Instructions]] for other operating systems).
+2. Create a site/blog with =hugo new site "yourSite"=
+   a. This will create a folder name =yourSite=
+3. Enter to that folder =cd yourSite=
+4. Add a theme. I am using [[https://github.com/reuixiy/hugo-theme-meme/][Meme theme]] which was added with =git submodule add --depth 1t https://github.com/reuixiy/hugo-theme-meme.git themes/meme= There are a lot of themes you can choose from the [[https://themes.gohugo.io/][Hugo theme page]]. Configuring the theme is not difficult ---I will not detail it.
+5. Now add a new post with =hugo new posts/NewPost.org=. As you can see, I am using an org to write the post (see a brief explanation of what [[https://earvingad.github.io/posts/org_mode/][org mode]] is), but it can be done using the markdown syntax as well.
+   a. You will see a new file =NewPost.org= created under =content/posts= folder. This file will include the content of your post/blog entry.
+   b. The file will begin with something like this
+      #+begin_src none
+---
+title: "NewPost"
+date: 2021-01-03T19:37:05-06:00
+draft: true
+---
+      #+end_src
+6. Once you are done with editing and writing you can preview the results with =hugo server -D= this will create a local page (including Drafts, that's the reason of =-D=) which you can access from your browser in =http://localhost:1313/= You can close the server by pressing =Crtl+c=.
+7. Configure your =config.toml= file located inside =yourSite= folder. It might start with something like this:
+   #+begin_src none
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "ananke"
+   #+end_src
+   a. Replace the =baseURL= URL with your =<USERNAME.github.io=
+   b. Change the tittle and select your theme. We are using here =meme= theme.
+   c. This is pretty much all the config you need for now. I will not explain more since it depends on the theme you choose.
+8. Before proceeding run =rm -rf public= to completely remove the public directory.
+9. Change =draft: true= to false in your post and run =hugo= to export the =NewPost.org= as an html file.
+10. Finally, bind your GitHub repository to your public directory where Hugo will store the pages to be published with =git submodule add -b main https://github.com/<USERNAME>/<USERNAME>.github.io.git public=
+
+* Update your git repository
+You have already exported your blog entry. Now it's time to make it public in the internet.
+1. From inside your =public= folder (which is located inside =yourSite= folder) run =git add .= to upload all the files to your =<USERNAME>.github.io= repository.
+2. Now commit the changes =git commit -m "My first blog"=
+3. And finally make it public with =git push origin master=
+4. That's it. You are done. You are able to access to your blog in =<USERNAME>.github.io= domain.
+
+More information about Hugo can be found [[https://gohugo.io/hosting-and-deployment/hosting-on-github/][here]] and [[https://gohugo.io/getting-started/quick-start/][here]].
+
+You can uso Hugo with [[https://gohugo.io/hosting-and-deployment/hosting-on-gitlab/][gitlab as a Host]] for your website. See gitlab info [[https://about.gitlab.com/stages-devops-lifecycle/pages/][here]].
+
+
+#+begin_src none
+If you found this content useful, please support me:
+BTC: 1E2YjL6ysiPxRF4AEdXChpzpesRuyzgE1y
+#+end_src

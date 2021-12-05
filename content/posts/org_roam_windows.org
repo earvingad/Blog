@@ -1,0 +1,65 @@
+---
+title: "Org-roam & Windows"
+date: 2020-05-26T22:18:24-05:00
+draft: false
+tags: [org, roam, windows, zettelkasten]
+categories: [orgmode, roam, windows]
+---
+* Org-roam
+[[https://org-roam.readthedocs.io/][Org-roam]] is a note-taking tool for Emacs using Org-mode. It is a replica of [[https://roamresearch.com/][RoamResearch]]: "/A note-taking tool for networked thought/". Both are based in the Zettelkasten method, which is described as:
+#+begin_quote
+Using a Zettelkasten is about optimizing a workflow of learning and producing knowledge.
+#+end_quote
+The method was developed by Niklas Luhmann and the literal translation is:
+#+BEGIN_CENTER
+Zettelkasten = /Box of notes/.
+#+END_CENTER
+
+In simple words: Org-roam allows you to make connections between your notes, in order to make a more efficient creative/learning process.
+
+You can read a more detailed introduction to Zettelkasten in [[https://medium.com/@mosessampaul/zettelkasten-method-of-knowledge-management-the-second-brain-218108942514][here]] and [[https://www.lesswrong.com/posts/NfdHG6oHBJ8Qxc26s/the-zettelkasten-method-1][here]]. Further reading in the [[https://zettelkasten.de/posts/overview/][official site]] and some help for [[https://org-roam.readthedocs.io/en/master/notetaking_workflow/][workflow]].
+
+#+BEGIN_CENTER
+/"Your mind is for having ideas, not holding them."/ \\
+--David Allen
+#+END_CENTER
+** Installing Org-roam
+This post assumes you have already installed DoomEmacs in Windows ([[https://earvingad.github.io/posts/doom_emacs_windows/][Doom, Emacs & Windows]]). Most of the instructions were taken from [[https://org-roam.readthedocs.io/en/master/installation/][Org-roam official site]]
+
+ 1. Download the [[https://sqlite.org/download.html][Official binary]] of =sqlite3= (the one that includes the =command-line shell program= aka the =.exe=)
+    1) Extract it and add it to your =path=.
+    2) You can check [[https://earvingad.github.io/posts/doom_emacs_windows/][Doom, Emacs & Windows]] to see how to add it to your =path=.
+ 2. In Emacs, install the =emacsql-sqlite3= package
+    1) Using DoomEmacs, just add =(package! emacsql-sqlite3)= in your =packages.el= (located in =C:\Users\yourusername\.doom.d\=[fn::=C:\Users\yourusername= is your HOME folder "~"] or =~/.doom.d=)
+    2) and run =~/.emacs.d/bin/doom sync= in the git-bash.
+ 3. Using a text editor (e.g. notepad) modify =org-roam-db.el= (located in =~/.emacs.d/.local/straight/repos/emacsql-sqlite3/=):
+    1) Replace =(require 'emacsql-sqlite)= with =(require 'emacsql-sqlite3)=
+    2) Comment/deactivate or delete the complete function =(defconst org-roam-db--sqlite-available-p ... )=
+ 4. In the function =(defun org-roam-db ...=, replace =emacsql-sqlite= with =emacsql-sqlite3=
+ 5. If you compile =.el= files, ensure to replace =org-roam-db.elc= with the new source you modified.
+    1) In other words: delete the =~/.emacs.d/.local/straight/build/org-roam-db.elc=
+    2) And run =~/.emacs.d/bin/doom sync= once more.
+ 6. Back in Emacs, install and configure org-roam
+    1) Open =~/.doom.d/init.el= and replace =org=, in ~:lang~ section, with =(org +roam)=
+    2) Define your org-roam-directory in your =config.el=:
+       =(setq org-roam-directory "/path/of/your/roam/directory")=
+ 7. To get graphics, download [[https://graphviz.gitlab.io/_pages/Download/Download_windows.html][Graphviz]] (the zip) and extract it where you prefer.
+    1) Add this to your =config.el=:
+       =(setq org-roam-graph-executable "/path/to/dot.exe")=
+    2) You might want to add your preferred viewer (or graphs will be open in Firefox by default):
+       =(setq org-roam-graph-viewer "/path/to/image-viewer")=
+ 8. Run =~/.emacs.d/bin/doom sync=
+ 9. /et voilà!/.
+
+Here is how taking notes looks in DoomEmacs (from the Org-rom github page).
+
+{{< figure src="https://github.com/org-roam/org-roam/blob/master/doc/images/org-roam-graph.gif?raw=true" title="" >}}
+
+I still have some pending:
+- TODO Set [[https://org-roam.readthedocs.io/en/master/roam_protocol/][Org-roam protocol]] in Windows
+
+
+#+begin_src none
+If you found this content useful, please support me:
+BTC: 1E2YjL6ysiPxRF4AEdXChpzpesRuyzgE1y
+#+end_src

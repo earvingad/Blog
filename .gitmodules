@@ -2,3 +2,6 @@
 	path = public
 	url = https://github.com/earvingad/earvingad.github.io.git
 	branch = master
+[submodule "themes/meme"]
+	path = themes/meme
+	url = https://github.com/reuixiy/hugo-theme-meme.git

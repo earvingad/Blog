@@ -1,0 +1,15 @@
+---
+title: "About"
+date: 2020-05-21T19:24:09-05:00
+draft: false
+---
+
+#+BEGIN_CENTER
+/"I'm John Mayer and I'm ready to be a star!"/
+#+END_CENTER
+Google that and thank me later.
+
+I'm a nerd who likes linux (I use Arch, BTW), Emacs, writing in LaTex, learning and sharing.
+I'm not a coder, I just like that my laptop boots in less than 10 seconds.
+
+You can find me at [[https://twitter.com/EarvingArciga][twitter]] and [[https://www.instagram.com/earvingad/][Instagram]] where I share other kind of stuff.

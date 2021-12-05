@@ -1,0 +1,99 @@
+---
+title: "Org-mode"
+date: 2020-05-24T17:38:08-05:00
+draft: false
+tags: [orgmode, emacs]
+categories: [emacs]
+---
+
+[[https://orgmode.org/][Org-mode]] is an Emacs mode for note taking, project planing and making TODO lists (because we all need TODO lists to [[https://en.wikipedia.org/wiki/Getting_Things_Done][GTD]]). It can handle more things: Calendar, diary, agenda and export you Org documents to other file extensions. I am not going do talk about all can do with org-mode, you can google yourself for further information. I am going to focus in note taking and export.
+* The org file
+It all starts with a file with a =.org= extension. Create one in Doomemacs with =SPC .= and name it "myfile.org". By default a template should fill the title like:
+#+BEGIN_SRC none
+#+TITLE: Myfile
+#+END_SRC
+This is part of the heading of the document. Here you can specify some options like the author, email, date or disable the table of contents (toc).
+#+BEGIN_SRC none
+#+AUTHOR: Some Author
+#+EMAIL: Some@email.com
+#+OPTIONS: toc:nil
+#+END_SRC
+After this, the body of the document begins. You start a headline with =*= and two of them =**= indicate a subheadline. You can specify verbatim text between =~|~=, code inside ==|==, italics surrounded by =/|/= and bold text inside =*|*=. (The | indicates the cursor position, or where you write your text).
+#+BEGIN_SRC none
+* Heading 1
+** Heading 1.1
+This is ~verbatim~, =code=, /italics/, *bold* and _underlined_ as well.
+#+END_SRC
+* Lists and TODO's
+For simple bullet list you can start it with:
+#+BEGIN_SRC none
+- Item one
+- Item 2
+#+END_SRC
+or numbered list
+#+BEGIN_SRC none
+1. First.
+2. Second.
+#+END_SRC
+The cool thing, is that pressing =Alt-RET= (alt-enter) will automatically take you to the next line keeping the counting of the items (e.g. If you are in item "2. Second" and press =Alt-RET= the next item will be "3. |").
+
+To insert a TODO just type: "* Buy milk" and then press =SPC m t t= to mark it as a TODO. Or press =Shift-Right/Left= to change the state from "TODO" to "DONE"
+
+#+BEGIN_SRC none
+* TODO Buy milk.
+* WAIT Get money to but milk.
+* DONE Get a Job.
+#+END_SRC
+* Blocks, comments & quotes
+To start a block just write (ignore the "." at the beginning):
+#+BEGIN_SRC none
+.#+BEGIN_SRC NameOfTheLanguageCode
+
+.#+END_SRC
+#+END_SRC
+Quotes and comments are similar
+
+#+BEGIN_SRC none
+#+begin_quote
+
+#+end_quote
+#+BEGIN_COMMENT
+
+#+END_COMMENT
+#+END_SRC
+* Tables, figures & links
+Yes, we can have tables. Use "|" and type "name", again "|", type "Phone" and press =TAB=. You will see how Emacs starts to arrange the table fitting automatically the width according to the content.
+#+BEGIN_SRC none
+| Name  | Phone | Age |
+|-------+-------+-----|
+| Peter |  1234 |  17 |
+| Anna  |  4321 |  25 |
+#+END_SRC
+Inserting a figure is simple as typing: =[[/path/to/the/image][desciption]]=. If you press =zi= in DoomEmacs it will call the function =org-toggle-inline-images= and will display the image you set in the document.
+
+The same syntax is used for the links, just type: =[[url][desciption]]=
+
+In DoomEmacs you can press =SPC m l l= to insert links and files/images.
+
+* Final thoughts
+The great thing about org-mode is that you can fold/unfold the sections of the document, to navigate quickly trough the notes, and export this plain text document (Yes, if you open the org file in a notepad you will see just plain text, is Emacs that renders the plain text) to a more common document types such as:
+- Org document --> LaTeX document -> PDF document.
+- Org document --> ODT document (the free alternative to Microsoft doc files, look at [[https://www.libreoffice.org/][LibreOffice]] project).
+- Org document --> [[https://www.markdownguide.org/][Markdown]] document (another plain text format).
+- Org document --> html document.
+- Org document --> Plain text document.
+
+You can export from one to another document with [[https://pandoc.org/][Pandoc]], which was meant to convert from Markdown to any type of document. As the Pandoc's page says:
+#+begin_quote
+If you need to convert files from one markup format into another, pandoc is your swiss-army knife. Pandoc can convert between the following formats.
+#+end_quote
+And there are several formats. However, for simple day-life PDF, html, ODT and plain text (for emails) the Emacs org-export works fine.
+
+As an example, an org document can look like this
+{{< figure src="/posts/img/orgmode-sample.png" title="" >}}
+
+
+#+begin_src none
+If you found this content useful, please support me:
+BTC: 1E2YjL6ysiPxRF4AEdXChpzpesRuyzgE1y
+#+end_src
