@@ -1,0 +1,61 @@
+---
+title: "Syncthing"
+date: 2022-04-24T18:30:09-05:00
+draft: false
+tags: [backup, synchronization]
+categories: [homelab]
+---
+I have been very very busy with work. Regardless COVID, I did homeoffice for about 2 weeks (and only due to suspicion of infection), work load increased considerably and therefore, I really abandoned this blog and I regret it, but I will try to keep writting it regardless the work.
+
+So, Let's start with the entry:
+
+
+#+begin_quote
+Syncthing is a *continuous file synchronization* program. It synchronizes files between two or more computers in real time, safely protected from prying eyes. Your data is your data alone and you deserve to choose where it is stored, whether it is shared with some third party, and how it's transmitted over the internet.
+#+end_quote
+
+Yeah, just like that. I have add that [[https://syncthing.net/][Syncthing]] not only synchronizes your data (files, photos, blah blah) between computers. It has also a mobile app for your phone ---which is free on Android and iPhone (under the name of Möbius Sync but I think you have to pay an extra for unlimited syncs).
+
+So why would you want to use it?
+
+Well if you have been unlucky as me, then you have lost your precious data due to a disk failure of your PC/laptop or got it stolen and you did not have a backup. You should have learned by now that you need backups of your data and might have listened of the 3-2-1 Backup Rule. And yeah, you can choose a cloud service like Google Drive, Dropbox, etc. but I will focus only on Syncthing as personal tool for backups at home.
+
+* What you need
+You can set up Syncthing easily on your pc or laptop, which we will assume it is the host. In other words: The computer that will serve as the Cloud of the devices you want to backup.
+1. So just download and install it on the Host.
+   a. Some guides for [[https://www.youtube.com/watch?v=2QcO8ikxzxA][Windows]] and [[https://www.youtube.com/watch?v=foTxCfhxVLE][Debian]]. Archlinux users will just =sudo pacman -S syncthing=
+2. After the installation, start syncthing and you can access the configuration page through =http://localhost:8384/= from the webbrowser on your host.
+3. Install syncthing on the devices your want to backup as well.
+
+* Configure your folders
+Initially, you will have a ~Default Folder~ and it will be marked as "Unshared", since you still have not added devices to share.
+Below, you will see the option ~Add Folder~ where you can specify the path of the folders you want to share and the labels for identification.
+
+I will assume you want to backup the photos of a phone.
+
+On the Host:
+1. Go to =http://localhost:8384/= on the webbrowser of your host.
+2. On the top right is the option =Actions= and then =Show ID=. A long ID and a QR code will appear.
+
+{{< figure src="https://docs.syncthing.net/_images/gs1.png" title="" >}}
+
+On the phone:
+1. Open the app and go to Devices and tap on the =+=
+2. Scan the QR code of the host /et voilá/.
+
+{{< figure src="https://play-lh.googleusercontent.com/DSXYbRHIOi8YrW2KfgOa93AqQ-ZxboQb1FYVqz8f1veSXj6Wq9PBBwJ_xUNnak8sSw=w1362-h654" title="" >}}
+
+Last step is to configure the folders that you want to share between both devices. Surely, you will not struggle, I find the UI is very intuitive.
+As a tip, path of camera folder on Androd is =/storage/emulated/0/DCIM/Camera=
+
+* Final thoughts
+1. You have to keep in mind that synchronization will only occur when the devices are online.
+2. Shared folders are initially configured as a =Send & Receive Folder=. Which means everything the Host does in the folder (add/delete/modify) will be reflected on the Device, and viceversa. You can change this [[https://docs.syncthing.net/users/foldertypes.html][Folder Type]].
+3. Every Device you install Syncthing will act as a Host itself. This is helpfull if you want to keep synced data only within your Work Lap and your phone; you will need pair the Work Lap and phone with a shared folder that will only be shared between those devices but not in the Host PC (which you will most likely use to backup personal stuff).
+4. Please check the [[https://docs.syncthing.net/intro/getting-started.html][Getting Started]] information and the whole set of [[https://docs.syncthing.net/][Syncthing’s documentation!]]
+
+
+#+begin_src none
+If you found this content useful, please support me:
+BTC: 1E2YjL6ysiPxRF4AEdXChpzpesRuyzgE1y
+#+end_src

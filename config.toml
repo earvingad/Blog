@@ -7,7 +7,7 @@ languageCode = "en"
 hasCJKLanguage = false
 # Copyright information (Markdown supported)
 # copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)"
-copyright = "Do not"
+copyright = "If you share, please give credit and support."
 
 # Name of theme
 theme = "meme"
@@ -95,9 +95,9 @@ uglyURLs = false
 # Author’s information
 [author]
     # Name
-    name = "Earving Arciga"
+    name = "Earving"
     # Email
-    email = "arciga.duran@gmail.com"
+    email = "gmail.com"
     # Motto or introduction
     motto = "Coffee & Beer"
     # Avatar
@@ -1212,7 +1212,7 @@ uglyURLs = false
     displaySiteCopyright = true
 
     # Custom Footer (Markdown supported)
-    customFooter = "BTC: 1E2YjL6ysiPxRF4AEdXChpzpesRuyzgE1y"
+    customFooter = "Please suport me BTC: 1E2YjL6ysiPxRF4AEdXChpzpesRuyzgE1y"
 
     displayBusuanziSiteUVAndPV = false
     busuanziSiteUVText = "Site UV"
